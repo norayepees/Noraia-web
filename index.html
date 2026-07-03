@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noraia · Gestión patrimonial de alquiler turístico</title>
+<meta name="description" content="Noraia gestiona apartamentos y edificios de alquiler turístico con un sistema propio de revenue. Tú recibes, nosotros nos ocupamos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --espresso:#3E2A20; --espresso-deep:#2C1E16; --ink:#2B2416;
+    --sand:#F1EADB; --cream:#FBF8F1; --gold:#CBA135; --gold-soft:#EBD9A2; --gold-deep:#A9831F;
+    --muted:#8A7B63; --line:#E3DAC6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:Jost,sans-serif;font-weight:300;color:var(--ink);background:var(--cream);line-height:1.6}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:500}
+
+  /* ---------- Nav ---------- */
+  nav{position:sticky;top:0;z-index:10;background:rgba(251,248,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);border-top:3px solid var(--gold)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1060px;margin:0 auto}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600}
+  .logo span{color:var(--gold)}
+  .nav-links{display:flex;gap:26px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+  .nav-links a:hover{color:var(--gold)}
+  @media(max-width:700px){.nav-links{display:none}}
+  .nav-cta{background:var(--espresso);color:#fff;padding:9px 18px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;border-radius:2px}
+  .nav-cta:hover{background:var(--espresso-deep)}
+
+  /* ---------- Hero ---------- */
+  header{background:linear-gradient(165deg,var(--espresso),var(--espresso-deep));color:#fff;padding:96px 0 84px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border:1px solid rgba(201,162,39,.25);border-radius:50%}
+  header::before{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;border:1px solid rgba(201,162,39,.15);border-radius:50%}
+  .hero h1{font-size:clamp(40px,7vw,68px);margin:18px 0 10px}
+  .hero h1 em{font-style:italic;color:var(--gold-soft)}
+  .hero p.sub{font-size:19px;color:#E9E2D2;max-width:560px;font-weight:300}
+  .hero .acts{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:13px 28px;font-size:13px;letter-spacing:2px;text-transform:uppercase;border-radius:2px;font-weight:500}
+  .btn-gold{background:var(--gold);color:var(--espresso-deep)}
+  .btn-gold:hover{background:var(--gold-soft)}
+  .btn-ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft)}
+
+  /* ---------- Cifras ---------- */
+  .cifras{background:var(--sand);border-bottom:1px solid var(--line)}
+  .cifras .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line)}
+  .cifra{background:var(--sand);padding:28px 22px;text-align:center}
+  .cifra b{display:block;font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:var(--espresso)}
+  .cifra b em{font-style:normal;color:var(--gold-deep)}
+  .cifra span{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+
+  section{padding:84px 0}
+  .sec-head{max-width:640px;margin-bottom:46px}
+  .sec-head h2{font-size:clamp(30px,4.5vw,42px);margin-top:14px;position:relative;padding-bottom:16px}
+  .sec-head h2::after{content:"";position:absolute;left:0;bottom:0;width:44px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-soft))}
+  .sec-head p{color:var(--muted);margin-top:12px;font-size:17px}
+
+  /* ---------- Método ---------- */
+  .metodo{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+  .met-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);padding:30px 26px;border-radius:3px}
+  .met-card h3{font-size:23px;margin-bottom:10px}
+  .met-card p{font-size:15px;color:#5C5142}
+  .met-card .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:500}
+
+  /* ---------- INR banda ---------- */
+  .inr{background:linear-gradient(160deg,var(--espresso),var(--espresso-deep));color:#fff}
+  .inr .wrap{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:center}
+  @media(max-width:760px){.inr .wrap{grid-template-columns:1fr}}
+  .inr h2{font-size:clamp(28px,4vw,38px);color:#fff}
+  .inr p{color:#E9E2D2;margin-top:14px;font-size:16.5px}
+  .inr p b{color:var(--gold-soft);font-weight:500}
+  .dial{width:100%;max-width:280px;margin:0 auto}
+
+  /* ---------- Planes ---------- */
+  .planes{background:var(--sand)}
+  .plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+  .plan{background:#fff;border:1px solid var(--line);padding:34px 28px;border-radius:3px;display:flex;flex-direction:column}
+  .plan.destacado{border:1px solid var(--gold);box-shadow:0 8px 30px rgba(62,42,32,.08)}
+  .plan .nombre{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600}
+  .plan .pct{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:var(--espresso);margin:8px 0 2px}
+  .plan .pct small{font-size:16px;font-family:Jost;color:var(--muted);font-weight:300}
+  .plan ul{list-style:none;margin:20px 0 26px;flex:1}
+  .plan li{padding:8px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:#4A4136}
+  .plan li::before{content:"— ";color:var(--gold)}
+  .plan .btn{text-align:center;background:var(--espresso);color:#fff}
+  .plan.destacado .btn{background:var(--gold);color:var(--espresso-deep)}
+  .plan .apto{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+  /* ---------- Regímenes ---------- */
+  .regimen{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+  .reg{border-left:2px solid var(--gold);padding:6px 0 6px 22px}
+  .reg h3{font-size:21px}
+  .reg p{font-size:14.5px;color:#5C5142;margin-top:6px}
+
+  /* ---------- Contacto ---------- */
+  .contacto{background:var(--sand)}
+  .form{background:#fff;border:1px solid var(--line);border-radius:3px;padding:36px;max-width:620px}
+  .form label{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+  .form input,.form textarea,.form select{width:100%;border:1px solid var(--line);background:var(--cream);padding:12px 14px;font-family:Jost;font-size:15px;border-radius:2px;color:var(--ink)}
+  .form input:focus,.form textarea:focus,.form select:focus{outline:2px solid var(--gold)}
+  .form button{margin-top:26px;background:var(--espresso);color:#fff;border:none;padding:14px 32px;font-family:Jost;font-size:13px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:2px}
+  .form button:hover{background:var(--espresso-deep)}
+
+  footer{background:var(--espresso-deep);color:#B9AD97;padding:44px 0;font-size:13.5px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline}
+  footer .logo{color:#fff;font-size:22px}
+
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.on{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="#top">Noraia<span>.</span></a>
+    <div class="nav-links">
+      <a href="#metodo">Método</a>
+      <a href="#sistema">El sistema</a>
+      <a href="#planes">Planes</a>
+      <a href="#interior">Interiorismo</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a class="nav-cta" href="#contacto">Hablemos</a>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap hero">
+    <div class="eyebrow">Gestión patrimonial · Alquiler turístico</div>
+    <h1>Tú recibes.<br><em>Nosotros nos ocupamos.</em></h1>
+    <p class="sub">Noraia gestiona apartamentos y edificios de alquiler turístico como lo que son: patrimonio. Un método propio que funciona en cualquier ciudad, decisiones documentadas y cuentas claras hasta el último euro.</p>
+    <div class="acts">
+      <a class="btn btn-gold" href="#contacto">Solicitar estudio de tu edificio</a>
+      <a class="btn btn-ghost" href="#sistema">Cómo trabajamos</a>
+    </div>
+  </div>
+</header>
+
+<div class="cifras">
+  <div class="wrap">
+    <div class="cifra"><b>8,3</b><span>Nota en Booking</span></div>
+    <div class="cifra"><b>108</b><span>Reseñas verificadas</span></div>
+    <div class="cifra"><b>Preferente</b><span>Programa Booking · 90%</span></div>
+    <div class="cifra"><b>15+</b><span>Unidades en gestión</span></div>
+  </div>
+</div>
+
+<section id="metodo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Método Noraia</div>
+      <h2>No gestionamos pisos. Gestionamos activos.</h2>
+      <p>Un edificio en alquiler turístico es una inversión que merece la disciplina de una gestora patrimonial, no la improvisación de un calendario de reservas.</p>
+    </div>
+    <div class="metodo">
+      <div class="met-card reveal">
+        <div class="tag">Revenue</div>
+        <h3>Precio con método, no con intuición</h3>
+        <p>Cada tarifa sale de un motor de reglas propio: antelación, ocupación futura, eventos en tu ciudad, suelos por tipo de apartamento. Cada decisión de precio queda registrada con su hipótesis y su resultado.</p>
+      </div>
+      <div class="met-card reveal">
+        <div class="tag">Transparencia</div>
+        <h3>Del bruto al neto, sin letra pequeña</h3>
+        <p>Informe mensual con lo que de verdad importa: ingresos, comisiones reales de cada canal, costes de operación y el neto que recibes. Y acceso al diario de decisiones de tu edificio.</p>
+      </div>
+      <div class="met-card reveal">
+        <div class="tag">Estrategia</div>
+        <h3>Multi-régimen: turístico, temporada, tradicional</h3>
+        <p>Combinamos regímenes de alquiler según la normativa de cada comunidad y la temporada para proteger la rentabilidad del edificio a largo plazo, no solo la ocupación del mes que viene. El método es el mismo en cualquier ciudad de España.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="inr" id="sistema">
+  <div class="wrap">
+    <div class="reveal">
+      <svg class="dial" viewBox="0 0 220 132" role="img" aria-label="Índice Noraia de Revenue: 83 sobre 100">
+        <path d="M 26 108 A 84 84 0 0 1 194 108" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="10" stroke-linecap="round"/>
+        <path id="arco" d="M 26 108 A 84 84 0 0 1 194 108" fill="none" stroke="#C9A227" stroke-width="10" stroke-linecap="round"
+              stroke-dasharray="264" stroke-dashoffset="264"/>
+        <text x="110" y="94" text-anchor="middle" fill="#fff" font-size="44" font-family="'Cormorant Garamond',serif" font-weight="600">83</text>
+        <text x="110" y="112" text-anchor="middle" fill="#E4CE8A" font-size="10" font-family="Jost" letter-spacing="3">ÍNDICE NORAIA</text>
+        <text x="110" y="129" text-anchor="middle" fill="#C9A227" font-size="15" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="600">BIEN</text>
+      </svg>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">El sistema Noraia</div>
+      <h2>Un solo número te dice cómo va tu edificio.</h2>
+      <p>El <b>Índice Noraia de Revenue (INR)</b> resume cada mes en una puntuación de 0 a 100: ocupación frente a objetivo, precio medio, cancelaciones y calidad de las reseñas, ponderados con los datos reales de tu edificio.</p>
+      <p>Detrás hay un sistema completo: cuadro de mando por edificio, análisis de cancelaciones y antelación, experimentos de precio medidos, y una base de conocimiento que aprende de cada decisión. <b>Es nuestra ventaja, y trabaja para tu patrimonio.</b></p>
+    </div>
+  </div>
+</section>
+
+<section class="planes" id="planes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Planes de gestión</div>
+      <h2>Tres niveles, una misma disciplina.</h2>
+      <p>Porcentaje sobre ingresos generados. Sin cuotas fijas, sin permanencias: si no producimos, no cobramos.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan reveal">
+        <div class="nombre">Esencial</div>
+        <div class="pct">15<small>% + IVA</small></div>
+        <div class="apto">Para propietarios que quieren apoyo comercial</div>
+        <ul>
+          <li>Anuncios y posicionamiento en canales</li>
+          <li>Precios con el sistema Noraia</li>
+          <li>Atención al huésped digital</li>
+          <li>Informe mensual de resultados</li>
+        </ul>
+        <a class="btn" href="#contacto">Empezar</a>
+      </div>
+      <div class="plan destacado reveal">
+        <div class="nombre">Integral</div>
+        <div class="pct">19<small>% + IVA</small></div>
+        <div class="apto">La gestión completa del día a día</div>
+        <ul>
+          <li>Todo lo del plan Esencial</li>
+          <li>Check-in, limpieza y ropa de cama</li>
+          <li>Mantenimiento e incidencias</li>
+          <li>Reposición y supervisión de calidad</li>
+          <li>Acceso al panel de tu edificio</li>
+        </ul>
+        <a class="btn" href="#contacto">Empezar</a>
+      </div>
+      <div class="plan reveal">
+        <div class="nombre">Patrimonial</div>
+        <div class="pct">23<small>% + IVA</small></div>
+        <div class="apto">Para edificios completos y carteras</div>
+        <ul>
+          <li>Todo lo del plan Integral</li>
+          <li>Estrategia multi-régimen y normativa</li>
+          <li>Rentabilidad neta sobre valor del activo</li>
+          <li>Plan anual de inversión y mejoras</li>
+          <li>Interlocución única: tú solo recibes</li>
+        </ul>
+        <a class="btn" href="#contacto">Empezar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Nuestra especialidad</div>
+      <h2>Del apartamento al edificio completo.</h2>
+      <p>Aceptamos desde un apartamento hasta carteras enteras. Y cuando la propiedad crece, la escala trabaja a tu favor:</p>
+    </div>
+    <div class="regimen">
+      <div class="reg reveal"><h3>Operación eficiente</h3><p>Un edificio completo concentra limpieza, mantenimiento y check-in: menos coste por estancia, más neto para el propietario.</p></div>
+      <div class="reg reveal"><h3>Cobertura normativa</h3><p>La combinación de regímenes protege el activo frente a los cambios regulatorios del alquiler turístico en Andalucía.</p></div>
+      <div class="reg reveal"><h3>Marca propia</h3><p>Cada propiedad opera con identidad cuidada que sostiene precios por encima del mercado.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="interior" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Servicio opcional · Interiorismo</div>
+      <h2>Un apartamento bien vestido gana más.</h2>
+      <p>Lo tenemos comprobado: en la misma calle, la propiedad bien decorada factura muy por encima de la que "cumple". Por eso, si quieres, también nos ocupamos de eso.</p>
+    </div>
+    <div class="metodo">
+      <div class="met-card reveal">
+        <div class="tag">Proyecto</div>
+        <h3>Decoración con criterio comercial</h3>
+        <p>Propuesta de interiorismo pensada para la foto, la reseña y el precio por noche: paleta, mobiliario, iluminación y esos detalles que un huésped recuerda. Sin obra: transformación, no reforma.</p>
+      </div>
+      <div class="met-card reveal">
+        <div class="tag">Puesta a punto</div>
+        <h3>Equipamiento y estreno</h3>
+        <p>Textiles, menaje, guía del huésped y fotografía profesional. La propiedad sale al mercado con identidad propia desde el primer día — como hacemos con nuestras Heredia Suites.</p>
+      </div>
+      <div class="met-card reveal">
+        <div class="tag">A tu ritmo</div>
+        <h3>Siempre opcional</h3>
+        <p>Es un servicio independiente de la gestión: lo contratas solo si lo quieres, con presupuesto cerrado y retorno estimado antes de empezar. Si tu propiedad ya está lista, gestionamos tal cual está.</p>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:44px;border:1px solid var(--line);border-left:3px solid var(--gold);background:#fff;border-radius:3px;padding:22px 26px;display:flex;gap:30px;flex-wrap:wrap;align-items:baseline">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)">Propiedades con nombre propio</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600">Heredia Suites Catedral <span style="font-family:Jost;font-size:12px;color:var(--muted);font-weight:300">· Málaga · 8,3 en Booking</span></div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600">Heredia Suites Centro <span style="font-family:Jost;font-size:12px;color:var(--muted);font-weight:300">· Málaga · próximamente</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Contacto</div>
+      <h2>Cuéntanos qué propiedad tienes.</h2>
+      <p>Un apartamento o un edificio entero, en la ciudad que sea: te preparamos un estudio de rentabilidad sin compromiso — qué puede producir tu propiedad y qué recibirías tú, en neto.</p>
+    </div>
+    <!-- IMPORTANTE: crea una cuenta gratis en formspree.io, crea un formulario
+         y sustituye TU_CODIGO por el identificador que te dé (ej. xqazwsxe) -->
+    <form class="form reveal" action="https://formspree.io/f/TU_CODIGO" method="POST">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" name="nombre" required>
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" required>
+      <label for="tipo">Qué quieres gestionar</label>
+      <select id="tipo" name="tipo">
+        <option>Edificio completo</option>
+        <option>Varios apartamentos</option>
+        <option>Un apartamento</option>
+        <option>Todavía explorando</option>
+      </select>
+      <label for="mensaje">Cuéntanos más</label>
+      <textarea id="mensaje" name="mensaje" rows="4" placeholder="Zona, número de unidades, situación actual…"></textarea>
+      <button type="submit">Solicitar estudio</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logo">Noraia<span style="color:var(--gold)">.</span></div>
+      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;margin-top:4px">tú recibes, nosotros nos ocupamos</div>
+    </div>
+    <div>Con base en Málaga · operamos en toda España · hola@noraia.com</div>
+    <div>© 2026 Noraia</div>
+  </div>
+</footer>
+
+<script>
+  // Revelado suave al hacer scroll (se desactiva solo si el usuario prefiere menos movimiento)
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // Arco del INR: se dibuja hasta 83/100 al entrar en pantalla
+  const arco=document.getElementById('arco');
+  if(arco && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const io2=new IntersectionObserver((es)=>{if(es[0].isIntersecting){arco.style.transition='stroke-dashoffset 1.4s ease';arco.style.strokeDashoffset=264*(1-0.83);io2.disconnect()}},{threshold:.4});
+    io2.observe(arco);
+  } else if(arco){ arco.style.strokeDashoffset=264*(1-0.83); }
+</script>
+</body>
+</html>
