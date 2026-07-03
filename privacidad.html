@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de privacidad · Noraia</title>
+<meta name="description" content="Política de privacidad del sitio web de Noraia (RGPD).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="index.html">Noraia<span>.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="metodo.html">Método</a>
+      <a href="planes.html">Planes</a>
+      <a href="interiorismo.html">Interiorismo</a>
+      <a href="nosotros.html">Nosotros</a>
+    </div>
+    <a class="nav-cta" href="contacto.html">Solicitar estudio</a>
+  </div>
+</nav>
+<div class="page-hero"><div class="wrap">
+  <div class="eyebrow">Legal</div>
+  <h1>Política de privacidad</h1>
+  <p>Cómo tratamos tus datos cuando nos escribes.</p>
+</div></div>
+<section><div class="wrap legal">
+  <h2>1 · Responsable</h2>
+  <p>Noraia [DENOMINACIÓN SOCIAL, S.L.], NIF [B-XXXXXXXX], [DIRECCIÓN], Málaga. Email: hola@noraia.com.</p>
+  <h2>2 · Qué datos tratamos y para qué</h2>
+  <p>Los que nos facilitas en el formulario de contacto (nombre, email, teléfono, datos de tu propiedad y tu mensaje), con la única finalidad de atender tu solicitud y preparar el estudio de rentabilidad que nos pides. Base jurídica: tu consentimiento y la aplicación de medidas precontractuales (art. 6.1.a y 6.1.b RGPD).</p>
+  <h2>3 · Destinatarios y conservación</h2>
+  <p>No cedemos tus datos a terceros. El formulario se gestiona a través de Formspree Inc. como encargado del tratamiento. Conservamos los datos el tiempo necesario para atender tu solicitud y, si no se formaliza relación, un máximo de 12 meses.</p>
+  <h2>4 · Tus derechos</h2>
+  <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a hola@noraia.com. También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+  <h2>5 · Cookies</h2>
+  <p>Este sitio no utiliza cookies de seguimiento ni analítica de terceros. Solo se cargan las tipografías desde Google Fonts.</p>
+</div></section>
+<footer>
+  <div class="wrap" style="display:block">
+    <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:baseline">
+      <div>
+        <div class="logo">Noraia<span style="color:var(--gold)">.</span></div>
+        <div class="lema">tú recibes, nosotros nos ocupamos</div>
+      </div>
+      <div>
+        <div>hola@noraia.com · +34 6XX XXX XXX</div>
+        <div style="margin-top:6px">Instagram <a href="https://instagram.com/noraia.gestion" style="color:var(--gold-soft)">@noraia.gestion</a> · <a href="https://linkedin.com" style="color:var(--gold-soft)">LinkedIn</a></div>
+      </div>
+      <div style="text-align:right">
+        <div class="flinks"><a href="legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="contacto.html">Contacto</a></div>
+        <div style="margin-top:6px">Con base en Málaga · toda España · © 2026 Noraia</div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const dibujar=(id,frac)=>{const a=document.getElementById(id);if(!a)return;
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches){a.style.strokeDashoffset=264*(1-frac);return}
+    const o=new IntersectionObserver((es)=>{if(es[0].isIntersecting){a.style.transition='stroke-dashoffset 1.5s ease';a.style.strokeDashoffset=264*(1-frac);o.disconnect()}},{threshold:.4});
+    o.observe(a)};
+  dibujar('arco',.87);dibujar('arco-mini',.87);
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aviso legal · Noraia</title>
+<meta name="description" content="Aviso legal y condiciones de uso del sitio web de Noraia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="index.html">Noraia<span>.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="metodo.html">Método</a>
+      <a href="planes.html">Planes</a>
+      <a href="interiorismo.html">Interiorismo</a>
+      <a href="nosotros.html">Nosotros</a>
+    </div>
+    <a class="nav-cta" href="contacto.html">Solicitar estudio</a>
+  </div>
+</nav>
+<div class="page-hero"><div class="wrap">
+  <div class="eyebrow">Legal</div>
+  <h1>Aviso legal y condiciones</h1>
+  <p>Transparencia también aquí.</p>
+</div></div>
+<section><div class="wrap legal">
+  <h2>1 · Titular del sitio</h2>
+  <p>Noraia [DENOMINACIÓN SOCIAL COMPLETA, S.L.], con NIF [B-XXXXXXXX] y domicilio en [DIRECCIÓN COMPLETA, MÁLAGA], inscrita en el Registro Mercantil de Málaga [TOMO/FOLIO/HOJA]. Contacto: hola@noraia.com.</p>
+  <h2>2 · Objeto</h2>
+  <p>Este sitio web tiene carácter informativo sobre los servicios de gestión de inmuebles en alquiler de Noraia. La información publicada (incluidos casos modelo y simulaciones) no constituye oferta contractual ni garantía de resultados: cada inmueble se estudia y presupuesta individualmente.</p>
+  <h2>3 · Condiciones de uso</h2>
+  <ul>
+    <li>El usuario se compromete a hacer un uso lícito del sitio y de sus contenidos.</li>
+    <li>Los contenidos, marca, textos e identidad visual de Noraia están protegidos por derechos de propiedad intelectual e industrial; no pueden reproducirse sin autorización.</li>
+    <li>Noraia no se hace responsable del contenido de sitios de terceros enlazados.</li>
+  </ul>
+  <h2>4 · Contratación de servicios</h2>
+  <p>Los servicios de gestión se formalizan siempre mediante contrato escrito específico, que detalla plan, comisión, alcance y condiciones de resolución. Nada de este sitio sustituye a dicho contrato.</p>
+  <h2>5 · Legislación aplicable</h2>
+  <p>La relación entre Noraia y los usuarios se rige por la legislación española. Para cualquier controversia, las partes se someten a los juzgados y tribunales de Málaga capital, salvo norma imperativa en contrario.</p>
+</div></section>
+<footer>
+  <div class="wrap" style="display:block">
+    <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:baseline">
+      <div>
+        <div class="logo">Noraia<span style="color:var(--gold)">.</span></div>
+        <div class="lema">tú recibes, nosotros nos ocupamos</div>
+      </div>
+      <div>
+        <div>hola@noraia.com · +34 6XX XXX XXX</div>
+        <div style="margin-top:6px">Instagram <a href="https://instagram.com/noraia.gestion" style="color:var(--gold-soft)">@noraia.gestion</a> · <a href="https://linkedin.com" style="color:var(--gold-soft)">LinkedIn</a></div>
+      </div>
+      <div style="text-align:right">
+        <div class="flinks"><a href="legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="contacto.html">Contacto</a></div>
+        <div style="margin-top:6px">Con base en Málaga · toda España · © 2026 Noraia</div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const dibujar=(id,frac)=>{const a=document.getElementById(id);if(!a)return;
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches){a.style.strokeDashoffset=264*(1-frac);return}
+    const o=new IntersectionObserver((es)=>{if(es[0].isIntersecting){a.style.transition='stroke-dashoffset 1.5s ease';a.style.strokeDashoffset=264*(1-frac);o.disconnect()}},{threshold:.4});
+    o.observe(a)};
+  dibujar('arco',.87);dibujar('arco-mini',.87);
+</script>
+</body>
+</html>

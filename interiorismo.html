@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interiorismo Noraia · Decoración con criterio comercial</title>
+<meta name="description" content="Decoración y puesta a punto de apartamentos turísticos con retorno estimado. Transformación, no obra. Siempre opcional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="index.html">Noraia<span>.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="metodo.html">Método</a>
+      <a href="planes.html">Planes</a>
+      <a href="interiorismo.html" style="color:var(--gold)">Interiorismo</a>
+      <a href="nosotros.html">Nosotros</a>
+    </div>
+    <a class="nav-cta" href="contacto.html">Solicitar estudio</a>
+  </div>
+</nav>
+<div class="page-hero"><div class="wrap">
+  <div class="eyebrow">Servicio opcional</div>
+  <h1>Un inmueble bien vestido gana más.</h1>
+  <p>En la misma calle, la propiedad bien decorada factura muy por encima de la que "cumple". Si quieres, también nos ocupamos de eso.</p>
+</div></div>
+<section class="interior-band" id="interior">
+  <div class="wrap">
+    <div class="interior">
+      <div class="int-card reveal"><div class="tag">Proyecto</div><h3>Decoración con criterio comercial</h3><p>Interiorismo pensado para la foto, la reseña y el precio por noche: paleta, mobiliario, iluminación y los detalles que un huésped recuerda. Transformación, no obra.</p></div>
+      <div class="int-card reveal"><div class="tag">Puesta a punto</div><h3>Equipamiento y estreno</h3><p>Textiles, menaje, guía del huésped y fotografía profesional. El inmueble sale al mercado con identidad propia desde el primer día.</p></div>
+      <div class="int-card reveal"><div class="tag">A tu ritmo</div><h3>Siempre opcional</h3><p>Servicio independiente de la gestión: presupuesto cerrado y retorno estimado antes de empezar. Si tu propiedad ya está lista, la gestionamos tal cual está.</p></div>
+    </div>
+  </div>
+</section>
+<div class="cta-band">
+  <h2>¿Hablamos de tu inmueble?</h2>
+  <p>En 48 horas puedes tener una primera lectura profesional.</p>
+  <a class="btn btn-gold" href="contacto.html">Solicitar estudio de rentabilidad</a>
+</div>
+<footer>
+  <div class="wrap" style="display:block">
+    <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:baseline">
+      <div>
+        <div class="logo">Noraia<span style="color:var(--gold)">.</span></div>
+        <div class="lema">tú recibes, nosotros nos ocupamos</div>
+      </div>
+      <div>
+        <div>hola@noraia.com · +34 6XX XXX XXX</div>
+        <div style="margin-top:6px">Instagram <a href="https://instagram.com/noraia.gestion" style="color:var(--gold-soft)">@noraia.gestion</a> · <a href="https://linkedin.com" style="color:var(--gold-soft)">LinkedIn</a></div>
+      </div>
+      <div style="text-align:right">
+        <div class="flinks"><a href="legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="contacto.html">Contacto</a></div>
+        <div style="margin-top:6px">Con base en Málaga · toda España · © 2026 Noraia</div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const dibujar=(id,frac)=>{const a=document.getElementById(id);if(!a)return;
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches){a.style.strokeDashoffset=264*(1-frac);return}
+    const o=new IntersectionObserver((es)=>{if(es[0].isIntersecting){a.style.transition='stroke-dashoffset 1.5s ease';a.style.strokeDashoffset=264*(1-frac);o.disconnect()}},{threshold:.4});
+    o.observe(a)};
+  dibujar('arco',.87);dibujar('arco-mini',.87);
+</script>
+</body>
+</html>
