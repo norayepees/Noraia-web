@@ -183,3 +183,47 @@
   .legal ul{margin-left:20px}
   footer .flinks{display:flex;gap:18px;flex-wrap:wrap}
   footer .flinks a:hover{color:var(--gold-soft)}
+
+  /* ---- Menú índice (hamburguesa) ---- */
+  .nav-links{display:none}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .burger{background:none;border:1px solid var(--line);width:44px;height:44px;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;transition:border-color .3s}
+  .burger:hover{border-color:var(--gold)}
+  .burger span{display:block;width:20px;height:1.5px;background:var(--espresso);transition:transform .35s ease,opacity .3s ease}
+  body.menu-abierto .burger span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  body.menu-abierto .burger span:nth-child(2){opacity:0}
+  body.menu-abierto .burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  .menu-panel{position:fixed;inset:0;background:linear-gradient(170deg,var(--espresso),#1f150e);z-index:50;display:flex;flex-direction:column;justify-content:center;padding:40px 24px;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s}
+  body.menu-abierto .menu-panel{opacity:1;visibility:visible}
+  body.menu-abierto{overflow:hidden}
+  .menu-cerrar{position:absolute;top:20px;right:24px;background:none;border:1px solid rgba(251,247,239,.3);color:var(--paper);width:44px;height:44px;font-size:20px;cursor:pointer;font-family:Jost}
+  .menu-cerrar:hover{border-color:var(--gold-soft);color:var(--gold-soft)}
+  .menu-list{max-width:520px;margin:0 auto;width:100%}
+  .menu-list a{display:flex;align-items:baseline;gap:18px;padding:13px 0;border-bottom:1px solid rgba(251,247,239,.12);color:var(--paper);font-family:'Cormorant Garamond',serif;font-size:clamp(26px,5vw,36px);font-weight:600;opacity:0;transform:translateY(10px);transition:color .3s}
+  body.menu-abierto .menu-list a{animation:menuIn .5s ease forwards}
+  .menu-list a:nth-child(1){animation-delay:.05s}.menu-list a:nth-child(2){animation-delay:.1s}
+  .menu-list a:nth-child(3){animation-delay:.15s}.menu-list a:nth-child(4){animation-delay:.2s}
+  .menu-list a:nth-child(5){animation-delay:.25s}.menu-list a:nth-child(6){animation-delay:.3s}
+  @keyframes menuIn{to{opacity:1;transform:none}}
+  .menu-list a:hover{color:var(--gold-soft)}
+  .menu-list a .n{font-family:Jost;font-size:12px;letter-spacing:2px;color:var(--gold);font-weight:400}
+  .menu-list a.activa{color:var(--gold-soft)}
+  .menu-pie{max-width:520px;margin:34px auto 0;width:100%;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#a99a83;letter-spacing:1px}
+  .menu-pie a:hover{color:var(--gold-soft)}
+  @media (prefers-reduced-motion: reduce){.menu-list a{animation:none!important;opacity:1;transform:none}}
+
+  /* ---- Proceso ---- */
+  .pasos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;counter-reset:paso}
+  .paso{border-top:1px solid var(--gold);padding-top:18px;counter-increment:paso}
+  .paso::before{content:"0" counter(paso);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--gold)}
+  .paso h3{font-size:20px;margin:6px 0 6px}
+  .paso p{font-size:14px;color:#5d5142}
+
+  /* ---- FAQ ---- */
+  .faq{max-width:760px}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:20px 0;font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--espresso)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--gold);font-size:24px;font-weight:400;transition:transform .3s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{padding:0 0 20px;font-size:15px;color:#4c4134;max-width:640px}

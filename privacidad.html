@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Política de privacidad · Noraia</title>
 <meta name="description" content="Política de privacidad del sitio web de Noraia (RGPD).">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232a1d14'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia,serif' font-size='40' font-weight='600' fill='%23b08d4f'%3EN%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Política de privacidad · Noraia">
+<meta property="og:description" content="Política de privacidad del sitio web de Noraia (RGPD).">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Noraia">
+<meta property="og:locale" content="es_ES">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -13,14 +19,25 @@
 <nav>
   <div class="nav-in">
     <a class="logo" href="index.html">Noraia<span>.</span></a>
-    <div class="nav-links">
-      <a href="index.html">Inicio</a>
-      <a href="metodo.html">Método</a>
-      <a href="planes.html">Planes</a>
-      <a href="interiorismo.html">Interiorismo</a>
-      <a href="nosotros.html">Nosotros</a>
+    <div class="nav-right">
+      <a class="nav-cta" href="contacto.html">Solicitar estudio</a>
+      <button class="burger" aria-label="Abrir el índice" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
     </div>
-    <a class="nav-cta" href="contacto.html">Solicitar estudio</a>
+  </div>
+  <div class="menu-panel" role="dialog" aria-label="Índice de la web">
+    <button class="menu-cerrar" aria-label="Cerrar" onclick="toggleMenu()">✕</button>
+    <div class="menu-list">
+      <a href="index.html"><span class="n">01</span> Inicio</a>
+      <a href="metodo.html"><span class="n">02</span> Método</a>
+      <a href="planes.html"><span class="n">03</span> Planes</a>
+      <a href="interiorismo.html"><span class="n">04</span> Interiorismo</a>
+      <a href="nosotros.html"><span class="n">05</span> Nosotros</a>
+      <a href="contacto.html"><span class="n">06</span> Contacto</a>
+    </div>
+    <div class="menu-pie">
+      <span>hola@noraia.com · +34 6XX XXX XXX</span>
+      <span><a href="legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a></span>
+    </div>
   </div>
 </nav>
 <div class="page-hero"><div class="wrap">
@@ -66,6 +83,14 @@
     const o=new IntersectionObserver((es)=>{if(es[0].isIntersecting){a.style.transition='stroke-dashoffset 1.5s ease';a.style.strokeDashoffset=264*(1-frac);o.disconnect()}},{threshold:.4});
     o.observe(a)};
   dibujar('arco',.87);dibujar('arco-mini',.87);
+</script>
+<script>
+  function toggleMenu(){
+    const abierto = document.body.classList.toggle('menu-abierto');
+    document.querySelector('.burger').setAttribute('aria-expanded', abierto);
+  }
+  document.querySelectorAll('.menu-list a, .menu-pie a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-abierto')));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')document.body.classList.remove('menu-abierto')});
 </script>
 </body>
 </html>
