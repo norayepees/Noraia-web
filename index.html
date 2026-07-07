@@ -24,8 +24,12 @@
       <button class="burger" aria-label="Abrir el índice" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <div class="menu-panel" role="dialog" aria-label="Índice de la web">
-    <button class="menu-cerrar" aria-label="Cerrar" onclick="toggleMenu()">✕</button>
+  <div class="menu-backdrop" onclick="toggleMenu()"></div>
+  <aside class="menu-panel" role="dialog" aria-label="Índice de la web">
+    <div class="menu-top">
+      <span class="t">Índice</span>
+      <button class="menu-cerrar" aria-label="Cerrar" onclick="toggleMenu()">✕</button>
+    </div>
     <div class="menu-list">
       <a href="index.html" class="activa"><span class="n">01</span> Inicio</a>
       <a href="metodo.html"><span class="n">02</span> Método</a>
@@ -35,10 +39,10 @@
       <a href="contacto.html"><span class="n">06</span> Contacto</a>
     </div>
     <div class="menu-pie">
-      <span>hola@noraia.com · +34 6XX XXX XXX</span>
-      <span><a href="legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a></span>
+      hola@noraia.com<br>+34 6XX XXX XXX<br>
+      <a href="legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a>
     </div>
-  </div>
+  </aside>
 </nav>
 <header id="top">
   <div class="wrap hero">
@@ -51,40 +55,29 @@
     </div>
   </div>
 </header>
-<div class="informe-band">
-  <div class="wrap">
-    <div class="informe reveal" role="img" aria-label="Ejemplo de informe mensual Noraia">
-      <div class="inf-head">
-        <div class="t">Informe mensual</div>
-        <div class="m">Caso modelo · Apartamento centro histórico</div>
-      </div>
-      <div class="inf-body">
-        <div class="inf-cascada">
-          <div class="inf-row"><span>Ingresos brutos</span><span>2.140 €</span></div>
-          <div class="inf-row neg"><span>Comisiones de canal</span><span>−438 €</span></div>
-          <div class="inf-row neg"><span>Limpieza y operación</span><span>−296 €</span></div>
-          <div class="inf-row neg"><span>Honorarios de gestión</span><span>−407 €</span></div>
-          <div class="inf-row total"><span>Tú recibes</span><span>999 €</span></div>
-        </div>
-        <div class="inf-inr">
-          <svg viewBox="0 0 220 132" style="width:180px" aria-hidden="true">
-            <path d="M 26 108 A 84 84 0 0 1 194 108" fill="none" stroke="var(--gold-pale)" stroke-width="9" stroke-linecap="round"/>
-            <path id="arco-mini" d="M 26 108 A 84 84 0 0 1 194 108" fill="none" stroke="var(--gold)" stroke-width="9" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="264"/>
-            <text x="110" y="92" text-anchor="middle" fill="var(--espresso)" font-size="44" font-family="'Cormorant Garamond',serif" font-weight="600">87</text>
-            <text x="110" y="110" text-anchor="middle" fill="var(--gold)" font-size="10" font-family="Jost" letter-spacing="3">ÍNDICE NORAIA</text>
-            <text x="110" y="128" text-anchor="middle" fill="var(--espresso)" font-size="14" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="600">EXCELENTE</text>
-          </svg>
-          <div class="inf-kpis">
-            <div><b>88%</b>ocupación</div>
-            <div><b>162 €</b>tarifa media</div>
-            <div><b>0</b>gestiones tuyas</div>
-          </div>
-        </div>
-      </div>
-      <div class="inf-foot">Simulación basada en operación real · así reporta Noraia cada mes</div>
+<!-- 2 · CASO DE IMPACTO -->
+<div class="impacto-band">
+  <div class="wrap impacto">
+    <div class="cab reveal">
+      <div class="eyebrow">Mismo edificio. Otra gestión.</div>
+      <h2>Lo que cambia cuando hay método.</h2>
     </div>
+    <div class="barras reveal">
+      <!-- EDITAR ANTES DE PUBLICAR: sustituir por las cifras reales confirmadas -->
+      <div class="barra antes">
+        <div class="lbl"><span>Gestión anterior · facturación anual</span><b>19.000 €</b></div>
+        <div class="pista"><div class="fill" data-w="55%"></div></div>
+      </div>
+      <div class="barra ahora">
+        <div class="lbl"><span>Con el método Noraia</span><b>29.000 €</b></div>
+        <div class="pista"><div class="fill" data-w="84%"></div></div>
+      </div>
+    </div>
+    <div class="delta reveal">+52% de facturación</div>
+    <div class="nota reveal">Heredia Suites · cifras redondeadas de operación real</div>
   </div>
 </div>
+
 
 <section>
   <div class="wrap">
@@ -117,7 +110,7 @@
       <div class="rule"></div>
     </div>
     <div class="teasers">
-      <a class="teaser reveal" href="metodo.html"><div class="eyebrow">01</div><h3>Método Noraia</h3><p>Seis disciplinas y un índice propio para saber, con un solo número, cómo rinde tu activo cada mes.</p><div class="mas">Ver el método →</div></a>
+      <a class="teaser reveal" href="metodo.html"><div class="eyebrow">01</div><h3>Método Noraia</h3><p>Revenue con datos, decisiones documentadas y los análisis que la mayoría de gestores no comparten con el propietario.</p><div class="mas">Ver el método →</div></a>
       <a class="teaser reveal" href="planes.html"><div class="eyebrow">02</div><h3>Planes de gestión</h3><p>Tres niveles — Esencial, Integral y Patrimonial — y acuerdos a medida para edificios completos.</p><div class="mas">Ver planes →</div></a>
       <a class="teaser reveal" href="interiorismo.html"><div class="eyebrow">03</div><h3>Interiorismo</h3><p>Un inmueble bien vestido gana más. Decoración y puesta a punto con retorno estimado. Siempre opcional.</p><div class="mas">Descubrir →</div></a>
       <a class="teaser reveal" href="nosotros.html"><div class="eyebrow">04</div><h3>Noraia</h3><p>Una gestora patrimonial boutique: pocos propietarios, discreción y una persona — no una app.</p><div class="mas">Conocernos →</div></a>
@@ -163,6 +156,13 @@
   }
   document.querySelectorAll('.menu-list a, .menu-pie a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-abierto')));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')document.body.classList.remove('menu-abierto')});
+</script>
+<script>
+  document.querySelectorAll('.barra .fill').forEach(el=>{
+    const w = el.dataset.w;
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.style.width=w;return}
+    new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){el.style.width=w;o.disconnect()}},{threshold:.5}).observe(el);
+  });
 </script>
 </body>
 </html>
